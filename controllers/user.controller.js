@@ -26,8 +26,18 @@ const getAllUsers = async(req, res) => {
         return res.status(500).send({error: error.message});
     }
 }
+const findUserById = async(req, res) => {
+    const userId = req.params.id;
+    try {
+        const users = await userService.findUserById(userId);
+        return res.status(200).send(users);
+    } catch (error) {
+        return res.status(500).send({error: error.message});
+    }
+}
 
 module.exports = {
     getUserProfile,
-    getAllUsers
+    getAllUsers,
+    findUserById,
 }
