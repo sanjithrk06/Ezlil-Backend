@@ -10,6 +10,7 @@ router.get(
   authenticate,
   orderController.confirmedOrders
 );
+router.get("/:orderId/placed", authenticate, orderController.placedOrders);
 router.get("/:orderId/ship", authenticate, orderController.shippOrders);
 router.get("/:orderId/deliver", authenticate, orderController.deliverOrders);
 router.get("/:orderId/cancel", authenticate, orderController.cancelledOrders);

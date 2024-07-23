@@ -1,76 +1,86 @@
 const orderService = require("../services/order.service");
 
-const getAllOrders = async(req, res) => {
-    try {
-        const orders = await orderService.getAllOrders();
+const getAllOrders = async (req, res) => {
+  try {
+    const orders = await orderService.getAllOrders();
 
-        return res.status(200).send(orders);
-    } catch (error) {
-        return res.status(500).send({error: error.message});
-    }
-}
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
 
-const confirmedOrders = async(req, res) => {
-    const orderId = req.params.orderId;
-    try {
-        const orders = await orderService.confirmedOrder(orderId);
+const confirmedOrders = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const orders = await orderService.confirmedOrder(orderId);
 
-        return res.status(200).send(orders);
-    } catch (error) {
-        return res.status(500).send({error: error.message});
-    }
-}
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
 
-const shippOrders = async(req, res) => {
-    const orderId = req.params.orderId;
-    try {
-        const orders = await orderService.shipOrder(orderId);
+const shippOrders = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const orders = await orderService.shipOrder(orderId);
 
-        return res.status(200).send(orders);
-    } catch (error) {
-        return res.status(500).send({error: error.message});
-    }
-}
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
 
-const deliverOrders = async(req, res) => {
-    const orderId = req.params.orderId;
-    try {
-        const orders = await orderService.deliverOrder(orderId);
+const deliverOrders = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const orders = await orderService.deliverOrder(orderId);
 
-        return res.status(200).send(orders);
-    } catch (error) {
-        return res.status(500).send({error: error.message});
-    }
-}
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
 
-const cancelledOrders = async(req, res) => {
-    const orderId = req.params.orderId;
-    try {
-        const orders = await orderService.cancelOrder(orderId);
+const cancelledOrders = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const orders = await orderService.cancelOrder(orderId);
 
-        return res.status(200).send(orders);
-    } catch (error) {
-        return res.status(500).send({error: error.message});
-    }
-}
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
+const placedOrders = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const orders = await orderService.placeOrder(orderId);
 
-const deleteOrders = async(req, res) => {
-    const orderId = req.params.orderId;
-    try {
-        const orders = await orderService.deleteOrder(orderId);
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
 
-        return res.status(200).send(orders);
-    } catch (error) {
-        return res.status(500).send({error: error.message});
-    }
-}
+const deleteOrders = async (req, res) => {
+  const orderId = req.params.orderId;
+  try {
+    const orders = await orderService.deleteOrder(orderId);
+
+    return res.status(200).send(orders);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+};
 
 module.exports = {
-    getAllOrders,
-    confirmedOrders,
-    shippOrders,
-    deliverOrders,
-    cancelledOrders,
-    deleteOrders
-}
-
+  getAllOrders,
+  confirmedOrders,
+  placedOrders,
+  shippOrders,
+  deliverOrders,
+  cancelledOrders,
+  deleteOrders,
+};
