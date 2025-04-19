@@ -1,4 +1,3 @@
-
 # **RESTful API for An E-commerce Website (Ezlil)**
 
 ## Project Overview 
